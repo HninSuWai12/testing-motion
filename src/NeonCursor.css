@@ -1,0 +1,56 @@
+
+/* Hide default cursor */
+* {
+  cursor: none;
+}
+
+.neon-cursor-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* MAIN DOT */
+.cursor-main {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgb(55, 52, 99);
+  box-shadow:
+    0 0 10px rgba(55, 52, 99, 0.8),
+    0 0 20px rgba(28, 24, 84, 0.6),
+    0 0 30px rgba(21, 34, 92, 0.4);
+  mix-blend-mode: difference;
+}
+
+/* TRAIL RING */
+.cursor-trail {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px  rgb(55, 52, 99);
+  box-shadow:
+    0 0 15px rgba(55, 52, 99, 0.6),
+    0 0 30px rgba(55, 52, 993, 0.4);
+  background: transparent;
+}
+
+/* GLOW AURA */
+.cursor-glow {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(55, 52, 99, 0.4) 0%,
+    rgba(55, 52, 99, 0.2) 30%,
+    rgba(33, 29, 94, 0.05) 55%,
+    transparent 70%
+  );
+  filter: blur(8px);
+  opacity: 0.4;
+}
