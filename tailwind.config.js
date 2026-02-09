@@ -7,5 +7,38 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+    plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.text-stroke-white': {
+          '-webkit-text-stroke': '2px white',
+        },
+        '.text-stroke-black': {
+          '-webkit-text-stroke': '2px black',
+        },
+      }
+      addUtilities(newUtilities)
+    }
+  ],
 }
+// tailwind.config.js
+// module.exports = {
+//   theme: {
+//     extend: {
+//       // This creates a custom utility
+//     },
+//   },
+  // plugins: [
+  //   function({ addUtilities }) {
+  //     const newUtilities = {
+  //       '.text-stroke-white': {
+  //         '-webkit-text-stroke': '2px white',
+  //       },
+  //       '.text-stroke-black': {
+  //         '-webkit-text-stroke': '2px black',
+  //       },
+  //     }
+  //     addUtilities(newUtilities)
+  //   }
+  // ],
+// }

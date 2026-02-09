@@ -1,8 +1,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import "./App.css";
-import { GradualSpacing } from "./components/motion/text-animation";
-
+import { GradualSpacing } from "./components/motion/GardulSpacing";
+import { HeaderNavbar } from "./components/pages/HeaderNavbar";
+import About from "./components/pages/About";
+import Footer from "./components/pages/Footer";
 export default function ScrollTwoLayer() {
   const containerRef = useRef(null);
 
@@ -19,41 +21,25 @@ export default function ScrollTwoLayer() {
   return (
     <div ref={containerRef} className="relative h-[200vh]">
       {/* FIRST LAYER (UNDER) */}
-      <motion.section
-        style={{ y, opacity, scale }}
-        className="sticky top-0 flex flex-col gap-12 h-screen flex items-center justify-center bg-white z-10"
-      >
-        <h1
-          className="text-5xl font-bold"
-          style={{
-            color: "transparent",
-            WebkitTextStrokeWidth: "2px", // thickness of the outline
-            WebkitTextStrokeColor: "black", // outline color
-          }}
-        >
-          Second Layer (Scroll Away)
-        </h1>
+      <HeaderNavbar />
+      <motion.section style={{ y, opacity, scale }} className=" ">
+        <motion.div className="sticky top-0 flex flex-col gap-12 h-screen flex items-center justify-center  z-10 bg-neutral-950 h-[100vh]">
+          <h1 className="hidden md:block my-0 text-8xl font-bold text-transparent [-webkit-text-stroke:2px_white] z-10">
+            Creating
+          </h1>
 
-        <GradualSpacing
-          id="hero-section"
-          style={{ y, opacity, scale }}
-          className="sticky top-0 flex flex-col gap-12 h-screen items-center justify-center bg-white z-10"
-        />
+          <GradualSpacing
+            id="hero-section"
+            style={{ y, opacity, scale }}
+            className="sticky top-0 flex flex-col gap-12 h-screen items-center justify-center bg-white z-10"
+          />
+        </motion.div>
+        <motion.div>
+          <About />
+        </motion.div>
       </motion.section>
 
-      <motion.section
-        style={{ y, opacity, scale }}
-        className="sticky top-0 h-screen flex items-center justify-center bg-white z-10"
-      >
-        <h1 className="text-5xl font-bold text-black">
-          Sub Layer (Scroll Away)
-        </h1>
-      </motion.section>
-      <section className="sticky top-0 h-screen flex items-center justify-center bg-black text-white z-0">
-        <h1 className="text-5xl font-bold bg-blue-400">
-          First Layer (Revealed) <p className="text-red-500"></p>
-        </h1>
-      </section>
+      <Footer />
 
       {/* SECOND LAYER (TOP) */}
     </div>
