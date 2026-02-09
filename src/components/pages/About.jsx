@@ -1,83 +1,44 @@
 import React from "react";
-
+import NavImg from "../../assets/images/image.png";
 const About = () => {
   return (
-    <div className="">
-      <div className="bg-yello-400">
-        {/* <motion.section> */}
+    <div className="flex flex-col gap-12">
+      <div className="relative w-full  text-center px-8 mt-12">
         <div
-          className="relative w-full max-w-4xl mx-auto mt-10 rounded-xl overflow-hidden shadow-lg"
+          className="bg-blue-600 py-16 h-[35vh] rounded-xl shadow-xl w-full
+             flex flex-col justify-center items-center text-center gap-12"
           style={{
-            background: "linear-gradient(to bottom, #0047FF, #C7FF00)",
+            clipPath:
+              "polygon(0 0, calc(100% - 80px) 0, 100% 80px, 100% 100%, 0 100%)",
+            borderRadius: "16px",
           }}
         >
-          <div className="bg-blue-600 text-center py-16 px-8">
-            <p classaName="text-white text-sm uppercase mb-4">WHO ARE WE</p>
-            <h2 className="text-yellow-300 text-2xl md:text-4xl font-semibold">
-              We are a full-service tech company designing and building
-              impactful digital products, brands, and meaningful experiences.
-            </h2>
-          </div>
-          <div className="absolute top-4 right-4">
-            <img
-              src="/mnt/data/9cea4f8e-2e68-41c7-bffd-dc061b6d0610.png"
-              alt=""
-              className="w-16 h-16"
-            />
-          </div>
+          <p className=" text-white text-2xl fw-bold uppercase mb-4">
+            WHO ARE WE
+          </p>
+          <h2 className="text-yellow-300 text-2xl md:text-4xl font-semibold">
+            We are a full-service tech company designing and building impactful
+            digital products, brands, and meaningful experiences.
+          </h2>
         </div>
-        {/* </motion.section> */}
-      </div>
 
-      <div className="bg-yello-400">
-        {/* <motion.section> */}
-        <div
-          className="relative w-full max-w-4xl mx-auto mt-10 rounded-xl overflow-hidden shadow-lg"
-          style={{
-            background: "linear-gradient(to bottom, #0047FF, #C7FF00)",
-          }}
-        >
-          <div className="bg-blue-600 text-center py-16 px-8">
-            <p classaName="text-white text-sm uppercase mb-4">WHO ARE WE</p>
-            <h2 className="text-yellow-300 text-2xl md:text-4xl font-semibold">
-              We are a full-service tech company designing and building
-              impactful digital products, brands, and meaningful experiences.
-            </h2>
-          </div>
-          <div className="absolute top-4 right-4">
-            <img
-              src="/mnt/data/9cea4f8e-2e68-41c7-bffd-dc061b6d0610.png"
-              alt=""
-              className="w-16 h-16"
-            />
-          </div>
+        <div className="absolute top-2 right-8">
+          <img
+            src={NavImg}
+            alt=""
+            className="w-20 h-20 rounded-full object-cover "
+          />{" "}
         </div>
-        {/* </motion.section> */}
       </div>
-      <div className="bg-yello-400">
-        {/* <motion.section> */}
-        <div
-          className="relative w-full max-w-4xl mx-auto mt-10 rounded-xl overflow-hidden shadow-lg"
-          style={{
-            background: "linear-gradient(to bottom, #0047FF, #C7FF00)",
-          }}
-        >
-          <div className="bg-blue-600 text-center py-16 px-8">
-            <p classaName="text-white text-sm uppercase mb-4">WHO ARE WE</p>
-            <h2 className="text-yellow-300 text-2xl md:text-4xl font-semibold">
-              We are a full-service tech company designing and building
-              impactful digital products, brands, and meaningful experiences.
-            </h2>
-          </div>
-          <div className="absolute top-4 right-4">
-            <img
-              src="/mnt/data/9cea4f8e-2e68-41c7-bffd-dc061b6d0610.png"
-              alt=""
-              className="w-16 h-16"
-            />
-          </div>
-        </div>
-        {/* </motion.section> */}
+      <div className="w-full flex flex-col gap-8 items-center text-center ">
+        <p className=" text-white text-2xl fw-bold uppercase mb-4">
+          WHAT DO WE DO
+        </p>
+        <h2 className="text-yellow-500 text-2xl md:text-4xl font-semibold px-16">
+          We do a lot here - no matter what our project size is, we all strive
+          to understand and partner with our clients to create something new and
+          exciting.
+        </h2>
       </div>
     </div>
   );

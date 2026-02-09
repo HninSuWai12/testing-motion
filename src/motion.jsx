@@ -5,6 +5,7 @@ import { GradualSpacing } from "./components/motion/GardulSpacing";
 import { HeaderNavbar } from "./components/pages/HeaderNavbar";
 import About from "./components/pages/About";
 import Footer from "./components/pages/Footer";
+import SlideDownText from "./components/motion/SlideDownText";
 export default function ScrollTwoLayer() {
   const containerRef = useRef(null);
 
@@ -14,32 +15,40 @@ export default function ScrollTwoLayer() {
   });
 
   // Transform scroll → animation values
-  const y = useTransform(scrollYProgress, [0, 1], [0, -300]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
 
   return (
-    <div ref={containerRef} className="relative h-[200vh]">
+    <div ref={containerRef} className="relative w-full ">
       {/* FIRST LAYER (UNDER) */}
-      <HeaderNavbar />
-      <motion.section style={{ y, opacity, scale }} className=" ">
-        <motion.div className="sticky top-0 flex flex-col gap-12 h-screen flex items-center justify-center  z-10 bg-neutral-950 h-[100vh]">
-          <h1 className="hidden md:block my-0 text-8xl font-bold text-transparent [-webkit-text-stroke:2px_white] z-10">
-            Creating
-          </h1>
+      <section className="sticky top-0 h-screen">
+        <GradualSpacing />
+      </section>
 
-          <GradualSpacing
-            id="hero-section"
-            style={{ y, opacity, scale }}
-            className="sticky top-0 flex flex-col gap-12 h-screen items-center justify-center bg-white z-10"
-          />
-        </motion.div>
-        <motion.div>
-          <About />
-        </motion.div>
+      <motion.section
+        style={{
+          y,
+
+          background: "linear-gradient(to bottom, #0c0c0b, #C7FF00)",
+        }}
+        className="
+          relative
+          w-full
+          min-h-screen
+          overflow-visible
+          rounded-xl
+          flex
+          flex-col
+          gap-24
+          py-32
+        "
+      >
+        <About />
+        <SlideDownText />
       </motion.section>
 
-      <Footer />
+      {/* <Footer /> */}
 
       {/* SECOND LAYER (TOP) */}
     </div>
