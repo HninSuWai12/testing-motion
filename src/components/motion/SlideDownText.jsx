@@ -49,7 +49,7 @@ export default function SlideDownText() {
   const [active, setActive] = useState(services[0]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto px-12 py-38 items-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto px-12 py-38 ">
       {/* LEFT CONTENT */}
       <div className="relative overflow-hidden">
         <AnimatePresence mode="wait">
@@ -62,7 +62,7 @@ export default function SlideDownText() {
             className="text-blue-600 max-w-xl flex flex-col gap-6"
           >
             <FaQuoteLeft className="text-4xl text-blue-600" />
-            <p className="text-xl font-bold leading-tight">{active.text}</p>
+            <p className="text-4xl font-bold leading-tight">{active.text}</p>
           </motion.div>
         </AnimatePresence>
       </div>

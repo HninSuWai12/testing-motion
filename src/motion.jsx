@@ -20,23 +20,25 @@ export default function ScrollTwoLayer() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
 
   return (
-    <div ref={containerRef} className="relative w-full ">
-      {/* FIRST LAYER (UNDER) */}
+    <div
+      ref={containerRef}
+      className="relative w-full pb-[35vh]" // 🔑 KEY FIX
+    >
+      {/* FIRST LAYER */}
       <section className="sticky top-0 h-screen">
         <GradualSpacing />
       </section>
 
+      {/* SECOND LAYER */}
       <motion.section
         style={{
           y,
-
           background: "linear-gradient(to bottom, #0c0c0b, #C7FF00)",
         }}
         className="
           relative
           w-full
           min-h-screen
-          overflow-visible
           rounded-xl
           flex
           flex-col
@@ -47,10 +49,6 @@ export default function ScrollTwoLayer() {
         <About />
         <SlideDownText />
       </motion.section>
-
-      {/* <Footer /> */}
-
-      {/* SECOND LAYER (TOP) */}
     </div>
   );
 }

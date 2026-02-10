@@ -6,25 +6,19 @@ import Footer from "./components/pages/Footer.jsx";
 import { GradualSpacing } from "./components/motion/GardulSpacing.jsx";
 import { HeaderNavbar } from "./components/pages/HeaderNavbar.jsx";
 import SlideDownText from "./components/motion/SlideDownText.jsx";
+import OurClient from "./components/pages/OurClient.jsx";
+import Award from "./components/pages/Award.jsx";
 
 export default function App() {
   return (
     <>
       <NeonCursor />
       <HeaderNavbar />
-      {/* <GradualSpacing />
-      <About /> */}
-      {/* <GradualSpacing /> */}
+
       <ScrollTwoLayer />
-      {/* <SlideDownText /> */}
-      {/* <div
-        style={{
-          background: "linear-gradient(to bottom, #292b2e, #C7FF00)",
-        }}
-        className="h-screen w-full flex items-center justify-center rounded-1xl overflow-hidden"
-      >
-        <About />
-      </div> */}
+      <OurClient />
+      <Award />
+
       <Footer />
     </>
   );
