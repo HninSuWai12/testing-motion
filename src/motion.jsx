@@ -22,7 +22,7 @@ export default function ScrollTwoLayer() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full pb-[35vh]" // 🔑 KEY FIX
+      className="relative w-full pb-[28.5vh]" // 🔑 KEY FIX
     >
       {/* FIRST LAYER */}
       <section className="sticky top-0 h-screen">
