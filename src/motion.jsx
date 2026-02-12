@@ -4,7 +4,6 @@ import "./App.css";
 import { GradualSpacing } from "./components/motion/GardulSpacing";
 import { HeaderNavbar } from "./components/pages/HeaderNavbar";
 import About from "./components/pages/About";
-import Footer from "./components/pages/Footer";
 import SlideDownText from "./components/motion/SlideDownText";
 export default function ScrollTwoLayer() {
   const containerRef = useRef(null);

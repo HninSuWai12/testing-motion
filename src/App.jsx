@@ -8,6 +8,10 @@ import { HeaderNavbar } from "./components/pages/HeaderNavbar.jsx";
 import SlideDownText from "./components/motion/SlideDownText.jsx";
 import OurClient from "./components/pages/OurClient.jsx";
 import Award from "./components/pages/Award.jsx";
+import OurWork from "./components/pages/OurWork.jsx";
+import TechStack from "./components/pages/TechStack.jsx";
+import Idea from "./components/pages/Idea.jsx";
+import TechIdea from "./components/motion/TechIdea.jsx";
 
 export default function App() {
   return (
@@ -15,11 +19,18 @@ export default function App() {
       <NeonCursor />
       <HeaderNavbar />
 
-      <ScrollTwoLayer />
-      <OurClient />
-      <Award />
+      <div className="relative z-10 bg-white shadow-xl">
+        <ScrollTwoLayer />
+        <OurClient />
+        <Award />
+        <OurWork />
+        <TechStack />
+        <Idea />
+      </div>
 
-      <Footer />
+      <footer className="sticky bottom-0 z-0 h-screen">
+        <Footer />
+      </footer>
     </>
   );
 }
