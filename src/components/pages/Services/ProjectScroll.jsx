@@ -28,7 +28,7 @@ const projects = [
   },
 ];
 
-const CaseStudySection = () => {
+const ProjectScroll = () => {
   const containerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -147,4 +147,4 @@ const Word = ({ children, progress, range, isPurple }) => {
   );
 };
 
-export default CaseStudySection;
+export default ProjectScroll;

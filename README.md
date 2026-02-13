@@ -1,16 +1,44 @@
-# React + Vite
+##Tech Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- **React** (Functional Components & Hooks)
+- **Tailwind CSS** (Styling & Gradients)
+- **Intersection Observer API** (Scroll detection)
+- **React Icon** (Optional - for icons)
+- **Framer Motion** (for animation)
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Cursor Animation**:
+- **Scroll-Triggered Number Counter**: Statistics (like "150+ Product Launches") count up automatically when they enter the user's viewport.
+- **Intersection Observer Reveal**: Content sections fade in and slide up smoothly as the user scrolls down.
+- **Custom Tailwind Gradients**: Implements a sophisticated diagonal gradient background from light lavender to deep violet.
 
-## React Compiler
+## 📡 API Details
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Base URL**: `https://dummyjson.com`
+- **Endpoints Used**: `/products`
+- **Library**: [Axios](https://axios-http.com/)
 
-## Expanding the ESLint configuration
+### Logic Flow for API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Component Mounts**: `useEffect` triggers the Axios request.
+2. **Request Starts**: `setLoading(true)` is called.
+3. **Try Block**: Fetches data. If successful, updates `data` and clears any previous `error`.
+4. **Catch Block**: If the API is down or the URL is wrong, the error message is saved to the `error` state.
+5. **Finally Block**: `setLoading(false)` runs regardless of the outcome to stop the loading indicator.
+
+## If you are running this project locally, ensure you have the animation library installed
+
+1. **npm install framer-motion**:
+2. **npm install axios**:
+3. **npm install react-icons react-router-dom**:
+4. **npm install -D tailwindcss autoprefixer postcss**:
+
+### want get project
+
+1. **https://github.com/HninSuWai12/testing-motion.git**:
+2. **npm install**
+
+## Start the Project:
+
+3. **npm run dev**
