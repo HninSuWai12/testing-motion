@@ -6,16 +6,27 @@ import {
   FaLinkedin,
   FaYoutube,
 } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+  const isCasesRoute = location.pathname.includes("/cases");
+  // console.log(isCasesRoute);
+
   return (
-    <footer className="bg-white px-10 py-20 font-sans border-t border-gray-100 h-[80vh]">
+    <footer
+      className={` px-10 py-20 font-sans border-t  border-gray-100 h-[80vh]`}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-600 leading-tight max-w-5xl uppercase tracking-tight">
+          <h2
+            className={`text-4xl md:text-5xl font-bold ${isCasesRoute == true ? "text-white" : "text-blue-600"} leading-tight max-w-5xl uppercase tracking-tight`}
+          >
             WE ARE YOUR PARTNER FOR INNOVATION & GROWTH
           </h2>
-          <button className="mt-8 md:mt-4 px-6 py-2 border-2 border-blue-600 text-blue-600 rounded-md font-semibold hover:bg-blue-600 hover:text-white transition-all flex items-center gap-2 text-sm uppercase">
+          <button
+            className={`mt-8 md:mt-4 px-6 py-2 border-2 ${isCasesRoute == true ? "border-white text-white hover:bg-white hover:text-blue-600 " : " border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white "}   rounded-md font-semibold  transition-all flex items-center gap-2 text-sm uppercase`}
+          >
             Get in touch{" "}
             <span>
               <FaArrowAltCircleRight />
@@ -26,22 +37,35 @@ const Footer = () => {
         {/* Middle Section: Links */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
           <div>
-            <h4 className="font-bold text-blue-600 mb-6 uppercase">
+            <h4
+              className={`font-bold ${isCasesRoute == true ? "text-white" : "text-blue-600"} mb-6 uppercase`}
+            >
               WE ONENEX
             </h4>
-            <ul className="space-y-4 text-gray-800 font-medium">
+            <ul
+              className={`space-y-4 ${isCasesRoute == true ? "text-white" : "text-gray-600"} font-medium`}
+            >
               <li>
-                <a href="#" className="hover:text-blue-600">
+                <a
+                  href="#"
+                  className={`${isCasesRoute == true ? "hover:text-white" : "hover:text-blue-600"}`}
+                >
                   Cases
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-600">
+                <a
+                  href="#"
+                  className={`${isCasesRoute == true ? "hover:text-white" : "hover:text-blue-600"}`}
+                >
                   Contact us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-600">
+                <a
+                  href="#"
+                  className={`${isCasesRoute == true ? "hover:text-white" : "hover:text-blue-600"}`}
+                >
                   Services
                 </a>
               </li>
@@ -49,25 +73,43 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-blue-600 mb-6 uppercase">WE OFFER</h4>
-            <ul className="space-y-4 text-gray-800 font-medium">
+            <h4
+              className={`font-bold ${isCasesRoute == true ? "text-white" : "text-blue-600"} mb-6 uppercase`}
+            >
+              WE OFFER
+            </h4>
+            <ul
+              className={`space-y-4 ${isCasesRoute == true ? "text-white" : "text-gray-600"} font-medium`}
+            >
               <li>
-                <a href="#" className="hover:text-blue-600">
+                <a
+                  href="#"
+                  className={`${isCasesRoute == true ? "hover:text-white" : "hover:text-blue-600"}`}
+                >
                   UI/UX Development
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-600">
+                <a
+                  href="#"
+                  className={`${isCasesRoute == true ? "hover:text-white" : "hover:text-blue-600"}`}
+                >
                   Web Development
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-600">
+                <a
+                  href="#"
+                  className={`${isCasesRoute == true ? "hover:text-white" : "hover:text-blue-600"}`}
+                >
                   Android Development
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-600">
+                <a
+                  href="#"
+                  className={`${isCasesRoute == true ? "hover:text-white" : "hover:text-blue-600"}`}
+                >
                   iOS Development
                 </a>
               </li>
@@ -75,29 +117,47 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-blue-600 mb-6 uppercase">
+            <h4
+              className={`font-bold ${isCasesRoute == true ? "text-white" : "text-blue-600"} mb-6 uppercase`}
+            >
               FOLLOW US
             </h4>
             <div className="flex gap-4">
-              <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white cursor-pointer hover:opacity-80">
+              <div
+                className={`w-8 h-8 rounded-full ${isCasesRoute == true ? "bg-white text-blue-600" : "bg-blue-600 text-white"} flex items-center justify-center  cursor-pointer hover:opacity-80`}
+              >
                 <FaFacebook />
               </div>
-              <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white cursor-pointer hover:opacity-80">
+              <div
+                className={`w-8 h-8 rounded-full ${isCasesRoute == true ? "bg-white text-blue-600" : "bg-blue-600 text-white"} flex items-center justify-center  cursor-pointer hover:opacity-80`}
+              >
                 <FaInstagram />
               </div>
-              <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white cursor-pointer hover:opacity-80">
+              <div
+                className={`w-8 h-8 rounded-full ${isCasesRoute == true ? "bg-white text-blue-600" : "bg-blue-600 text-white"} flex items-center justify-center  cursor-pointer hover:opacity-80`}
+              >
                 <FaLinkedin />
               </div>
-              <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white cursor-pointer hover:opacity-80">
+              <div
+                className={`w-8 h-8 rounded-full ${isCasesRoute == true ? "bg-white text-blue-600" : "bg-blue-600 text-white"} flex items-center justify-center  cursor-pointer hover:opacity-80`}
+              >
                 <FaYoutube />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="pt-10 border-t border-blue-200 flex justify-between items-center">
-          <div className="text-2xl font-black text-blue-600 italic">ONENEX</div>
-          <div className="text-[10px] text-blue-600 uppercase tracking-widest">
+        <div
+          className={`pt-10 border-t ${isCasesRoute == true ? "border-white" : "border-blue-200"} flex justify-between items-center`}
+        >
+          <div
+            className={`text-2xl font-black ${isCasesRoute == true ? "text-white" : "text-blue-600"} italic`}
+          >
+            ONENEX
+          </div>
+          <div
+            className={`text-[10px] ${isCasesRoute == true ? "text-white" : "text-blue-600"}  uppercase tracking-widest`}
+          >
             ONENEX © COPYRIGHT 2026. ALL RIGHTS RESERVED.
           </div>
         </div>

@@ -1,0 +1,21 @@
+/* The main following dot */
+.cursor-main {
+  width: 12px;
+  height: 12px;
+  background-color: #0E5276; /* Dark blue center dot from video */
+  border: 2px solid white;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 9999;
+}
+
+/* The giant lime spotlight glow */
+.cursor-glow {
+  width: 400px; /* Large size as seen in video */
+  height: 400px;
+  background: radial-gradient(circle, rgba(199, 255, 0, 0.4) 0%, rgba(199, 255, 0, 0) 70%);
+  filter: blur(40px);
+  border-radius: 50%;
+  position: fixed;
+  z-index: 9998;
+}

@@ -1,9 +1,15 @@
 import React from "react";
 import Ticker from "../motion/Ticker";
+import { useCursor } from "../../Context/CursorContext";
 
 const OurClient = () => {
+  const { setCursorType } = useCursor();
   return (
-    <div className="h-[64vh] flex flex-col gap-12 items-center text-center  flex-justify bg-gray-100">
+    <div
+      onMouseEnter={() => setCursorType("default")}
+      onMouseLeave={() => setCursorType("default")}
+      className="h-[64vh] flex flex-col gap-12 items-center text-center  flex-justify bg-gray-100"
+    >
       <div className="w-full flex flex-col gap-8 items-center mt-12 text-center ">
         <p className="  text-2xl fw-bold  mb-4">OUR CLIENTS</p>
         <h2 className=" text-2xl  font-bold px-16">

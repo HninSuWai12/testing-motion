@@ -1,47 +1,103 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export const HeaderNavbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [activeRoute, setActiveRoute] = useState("/");
+  const location = useLocation();
+
+  const isCasesRoute = location.pathname.includes("/cases");
+  const isContactRoute = location.pathname.includes("/contact");
+  const isServicesRoute = location.pathname.includes("/services");
 
   const menuItems = ["Home", "Services", "Cases", "Contact Us"];
-
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", controlNavbar);
+    return () => window.removeEventListener("scroll", controlNavbar);
+  }, [lastScrollY]);
   return (
     <>
-      <nav className="relative z-50 bg-neutral-950">
+      <nav
+        className={`fixed top-0 left-0 w-full z-[100] transition-transform duration-300 ${isCasesRoute || isContactRoute ? "bg-[#f8f7f2]" : isContactRoute ? "bg-black" : "bg-neutral-950"} 
+          ${isVisible ? "translate-y-0" : "-translate-y-full"}
+        `}
+      >
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             {/* LeftNavItem */}
             {/* <div className="flex h-16 items-center justify-between"> */}
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="/"
+                onClick={() => setActiveRoute("/")}
                 aria-current="page"
                 className={`text-lg font-bold ${isMenuOpen ? "text-netural-950" : "text-yellow-500"}`}
               >
-                <span className="text-2xl font-bold text-lime-300">onenex</span>
+                <span
+                  className={`text-2xl font-bold transition-colors duration-300 ${
+                    isCasesRoute || isContactRoute
+                      ? "text-violet-500"
+                      : isServicesRoute
+                        ? "text-white"
+                        : "text-lime-300"
+                  }`}
+                >
+                  Onenex
+                </span>{" "}
               </a>
             </div>
             {/* </div> */}
             <div className="hidden sm:ml-6 sm:block">
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 flex flex-row gap-6">
                 <a
-                  href="#"
+                  href="services"
+                  onClick={() => setActiveRoute("services")}
                   aria-current="page"
-                  className=" text-lg font-medium text-lime-300"
+                  className={` text-lg font-medium ${
+                    isCasesRoute || isContactRoute
+                      ? "text-violet-500"
+                      : isServicesRoute
+                        ? "text-white"
+                        : "text-lime-300"
+                  } `}
                 >
                   Services
                 </a>
                 <a
-                  href="#"
+                  href="cases"
+                  onClick={() => setActiveRoute("cases")}
                   aria-current="page"
-                  className=" text-lg font-medium text-lime-300"
+                  className={` text-lg font-medium ${
+                    isCasesRoute || isContactRoute
+                      ? "text-violet-500"
+                      : isServicesRoute
+                        ? "text-white"
+                        : "text-lime-300"
+                  } `}
                 >
                   Cases
                 </a>
                 <a
-                  href="#"
+                  href="contact"
+                  onClick={() => setActiveRoute("cases")}
                   aria-current="page"
-                  className=" text-lg font-medium text-lime-300"
+                  className={` text-lg font-medium ${
+                    isCasesRoute || isContactRoute
+                      ? "text-violet-500"
+                      : isServicesRoute
+                        ? "text-white"
+                        : "text-lime-300"
+                  } `}
                 >
                   Contact Us
                 </a>
@@ -76,7 +132,15 @@ export const HeaderNavbar = () => {
           {menuItems.map((item) => (
             <a
               key={item}
-              href="#"
+              href={
+                item == "Services"
+                  ? "services"
+                  : item == "Cases"
+                    ? "cases"
+                    : item == "Contact Us"
+                      ? "contact"
+                      : "/"
+              }
               className="block text-lg font-medium text-netural-950 "
               onClick={() => setMenuOpen(false)}
             >
@@ -119,7 +183,15 @@ export const HeaderNavbar = () => {
           {menuItems.map((item) => (
             <a
               key={item}
-              href="#"
+              href={
+                item == "Services"
+                  ? "services"
+                  : item == "Cases"
+                    ? "cases"
+                    : item == "Contact Us"
+                      ? "contact"
+                      : "/"
+              }
               onClick={() => setMenuOpen(false)}
               className="flex items-center gap-3 text-xl font-semibold text-blue-600"
             >

@@ -5,9 +5,10 @@ import { GradualSpacing } from "./components/motion/GardulSpacing";
 import { HeaderNavbar } from "./components/pages/HeaderNavbar";
 import About from "./components/pages/About";
 import SlideDownText from "./components/motion/SlideDownText";
+import { useCursor } from "./Context/CursorContext";
 export default function ScrollTwoLayer() {
   const containerRef = useRef(null);
-
+  const { setCursorType } = useCursor();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -21,7 +22,9 @@ export default function ScrollTwoLayer() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full pb-[28.5vh]" // 🔑 KEY FIX
+      className="relative w-full pb-[28.5vh]"
+      onMouseEnter={() => setCursorType("first")}
+      onMouseLeave={() => setCursorType("first")} // 🔑 KEY FIX
     >
       {/* FIRST LAYER */}
       <section className="sticky top-0 h-screen">

@@ -1,10 +1,18 @@
 import React from "react";
 import ApiCard from "./ApiCard";
+import { useCursor } from "../../Context/CursorContext";
 
 const OurWork = () => {
+  const { setCursorType } = useCursor();
+
   return (
     // We use min-h-screen to ensure the background covers the viewport
-    <div className="w-full relative" style={{ background: "#0e5275" }}>
+    <div
+      onMouseEnter={() => setCursorType("default")}
+      onMouseLeave={() => setCursorType("default")}
+      className="w-full relative"
+      style={{ background: "#0e5275" }}
+    >
       <div className="max-w-7xl mx-auto pt-20 px-4 flex flex-col gap-6 text-center items-center">
         <h2 className="text-white/70 uppercase tracking-widest text-sm font-semibold">
           Our Works

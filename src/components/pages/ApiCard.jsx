@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { getapiList } from "../../api/commonApi";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useCursor } from "../../Context/CursorContext";
 
 const ApiCard = () => {
   const [freeApiList, setFreeApiList] = useState([]);
@@ -10,7 +11,7 @@ const ApiCard = () => {
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-
+  const { setCursorType } = useCursor();
   // This maps the vertical scroll (0 to 1) to horizontal movement
   // Adjust "-70%" to a larger number if you have many cards
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
@@ -43,6 +44,8 @@ const ApiCard = () => {
               return (
                 <div
                   key={cart.id}
+                  onMouseEnter={() => setCursorType("view")}
+                  onMouseLeave={() => setCursorType("defaule")}
                   className="group relative h-[450px] w-[450px] overflow-hidden bg-white rounded-lg "
                 >
                   <div className="h-2/3 overflow-hidden">

@@ -21,7 +21,7 @@ const Ticker = () => {
     <div className="overflow-hidden w-full flex flex-col gap-6 flex-justify">
       <motion.div
         className="flex gap-3 whitespace-nowrap h-[10vh]"
-        animate={{ x: ["0%", "-50%"] }} // move left
+        animate={{ x: ["0%", "-50%"] }}
         transition={{
           x: {
             repeat: Infinity,
@@ -31,7 +31,6 @@ const Ticker = () => {
           },
         }}
       >
-        {/* duplicate items for seamless looping */}
         {items.map((item, idx) => (
           <div
             key={`first-${idx}`}

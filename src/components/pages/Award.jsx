@@ -3,10 +3,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import logo1 from "../../assets/images/logo11.png";
 import logo2 from "../../assets/images/logo2.png";
 import logo3 from "../../assets/images/logo3.png";
+import { useCursor } from "../../Context/CursorContext";
 
 const Award = () => {
   const ref = useRef(null);
   const videoRef = useRef(null);
+  const { setCursorType } = useCursor();
 
   const { scrollYProgress } = useScroll({
     target: videoRef,
@@ -32,6 +34,8 @@ const Award = () => {
         backgroundColor,
         color: textColor,
       }}
+      onMouseEnter={() => setCursorType("default")}
+      onMouseLeave={() => setCursorType("default")}
       transition={{ duration: 0.4 }}
       className="w-full px-6 md:px-20 py-20 font-sans"
     >
